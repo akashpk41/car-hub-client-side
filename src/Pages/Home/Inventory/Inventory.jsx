@@ -7,18 +7,17 @@ const Inventory = () => {
   console.log(cars);
 
   return (
-    <div className="border-2 md:w-4/5 md:mx-auto  border-black my-5 ">
+    <div className=" md:w-4/5 md:mx-auto   my-5 ">
       <h1 className="text-center my-3 text-3xl font-medium ">
         {" "}
         Inventory Items{" "}
       </h1>
 
-    <div className="grid md:grid-cols-3 ">
-      {
-        cars.slice(0,6).map(car => <SingleCarCard key={car.id} car={car} /> )
-      }
-    </div>
-
+      <div className="grid md:grid-cols-3  ">
+        {cars.slice(0, 6).map((car) => (
+          <SingleCarCard key={car.id} car={car} />
+        ))}
+      </div>
     </div>
   );
 };

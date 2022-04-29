@@ -7,10 +7,10 @@ const SingleCarCard = ({ car }) => {
     <div
       data-aos="fade-up"
       data-aos-duration="1000"
-      className="max-w-sm hover:scale-105 transition-all duration-200 relative m-2 cursor-pointer bg-white rounded-lg border  shadow-xl hover:shadow-2xl text-center md:text-left "
+      className="max-w-sm hover:scale-105 transition-all duration-200 relative m-2 md:cursor-pointer bg-white rounded-lg border  shadow-xl hover:shadow-2xl text-center md:text-left "
     >
-      <img
-        className="rounded-t-lg hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 hover:mt-5 duration-300 border-b-2 border-gray-500 "
+      <img data-aos="zoom-in"
+        className="rounded-t-lg hover:-translate-y-1 md:hover:scale-110 md:hover:bg-indigo-500 md:hover:mt-5 duration-300 border-b-2 border-gray-500 "
         src={img}
         alt=""
       />

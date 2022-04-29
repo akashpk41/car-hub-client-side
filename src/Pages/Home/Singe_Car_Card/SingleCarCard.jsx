@@ -4,7 +4,11 @@ import { Link } from "react-router-dom";
 const SingleCarCard = ({ car }) => {
   const { name, price, img, description, quantity } = car;
   return (
-    <div className="max-w-sm hover:scale-105 transition-all duration-200 relative m-2 cursor-pointer bg-white rounded-lg border  shadow-xl hover:shadow-2xl text-center md:text-left ">
+    <div
+      data-aos="fade-up"
+      data-aos-duration="1000"
+      className="max-w-sm hover:scale-105 transition-all duration-200 relative m-2 cursor-pointer bg-white rounded-lg border  shadow-xl hover:shadow-2xl text-center md:text-left "
+    >
       <img
         className="rounded-t-lg hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 hover:mt-5 duration-300 border-b-2 border-gray-500 "
         src={img}

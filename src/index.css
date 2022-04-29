@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
+#banner-title {
+     color: #FFFFFF;
+     background: #333333;
+     text-shadow: 0 -1px 0px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00;
+     color: #FFFFFF;
+     background: transparent;
+}
+
+#shadow {
+     color: #FFFFFF;
+background: #ece9e9;
+text-shadow: 3px 2px 2px #474747;
+color: #FFFFFF;
+background: transparent;
+}
+
 @tailwind utilities;

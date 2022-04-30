@@ -4,7 +4,7 @@ import SingleCarCard from "../Singe_Car_Card/SingleCarCard";
 
 const Inventory = () => {
   const [cars, setCars] = useCars();
-  console.log(cars);
+  // console.log(cars);
 
   return (
     <div className=" md:w-4/5 md:mx-auto   my-5 ">

@@ -10,7 +10,7 @@ const brands = [brand1, brand2, brand3, brand4, brand5, brand6];
 
 const PopularBrands = () => {
   return (
-    <div className="my-10 p-5 md:w-4/5 md:mx-auto shadow-2xl rounded-lg  ">
+    <div className="my-10 bg-white p-5 md:w-4/5 md:mx-auto shadow-2xl rounded-lg  ">
       <h1 className="text-center my-3 text-3xl font-medium ">
         {" "}
         Popular Brands Available{" "}

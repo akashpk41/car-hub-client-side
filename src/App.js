@@ -4,6 +4,7 @@ import Blog from "./Pages/Home/Blog/Blog";
 import Contact from "./Pages/Home/Contact/Contact";
 import Home from "./Pages/Home/Home/Home";
 import NotFound from "./Pages/Home/Not_Found/NotFound";
+import Footer from "./Pages/Shared/Footer/Footer";
 import Navbar from "./Pages/Shared/Navbar/Navbar";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Route path='/contact' element={<Contact />}/>
       <Route path='*' element={<NotFound /> } />
     </Routes>
+    <Footer />
   </>;
 }
 

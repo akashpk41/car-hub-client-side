@@ -10,7 +10,7 @@ const SingleCarCard = ({ car }) => {
       className="max-w-sm hover:scale-105 transition-all duration-200 relative m-2 md:cursor-pointer bg-white rounded-lg border  shadow-xl hover:shadow-2xl text-center md:text-left "
     >
       <img data-aos="zoom-in"
-        className="rounded-t-lg hover:-translate-y-1 md:hover:scale-110 md:hover:bg-indigo-500 md:hover:mt-5 duration-300 border-b-2 border-gray-500 "
+        className="rounded-t-lg hover:-translate-y-1 md:hover:scale-110  md:hover:bg-indigo-500 md:hover:mt-5 duration-300 border-b-2 border-gray-500 "
         src={img}
         alt=""
       />

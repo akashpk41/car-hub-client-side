@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 body {
-     background:rgb(153 153 153);
+     background:rgb(0 11 36);
 }
 #banner-title {
      color: #FFFFFF;

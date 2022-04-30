@@ -4,6 +4,8 @@ import AddNewItems from "./Pages/Home/Add_New_Items/AddNewItems";
 import Blog from "./Pages/Home/Blog/Blog";
 import Contact from "./Pages/Home/Contact/Contact";
 import Home from "./Pages/Home/Home/Home";
+import Login from "./Pages/Home/Login_and_Register/Login/Login";
+import Register from "./Pages/Home/Login_and_Register/Register/Register";
 import ManageInventory from "./Pages/Home/Manage_Inventory/ManageInventory";
 
 import NotFound from "./Pages/Home/Not_Found/NotFound";
@@ -20,7 +22,8 @@ function App() {
         <Route path="/blogs" element={<Blog />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/add-items" element={<AddNewItems />} />
         <Route path="/manage-inventory" element={<ManageInventory />} />
         <Route path="*" element={<NotFound />} />

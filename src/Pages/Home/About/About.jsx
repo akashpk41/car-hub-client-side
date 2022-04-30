@@ -2,7 +2,7 @@ import React from "react";
 import img from "../../../images/warehouse.jpg";
 const About = () => {
   return (
-    <div className=" bg-white md:w-4/5 md:mx-auto border-orange-500 border-2 rounded-lg shadow-2xl   my-5 ">
+    <div data-aos="zoom-in" className=" bg-white md:w-4/5 md:mx-auto border-orange-500 border-2 rounded-lg shadow-2xl   my-5 ">
       <h1 className="text-center  my-3 text-3xl font-medium ">
         {" "}
         Why Choose Us{" "}
@@ -27,7 +27,7 @@ const About = () => {
           </p>
 
           {/* special */}
-          <div className="flex space-x-3 ">
+          <div data-aos="flip-left"  className="flex space-x-3 ">
             <div className=" w-1 h-15  mr-2 bg-red-500 "></div>
             <div>
               <h4 className="text-3xl font-bold text-blue-600 ">5000+</h4>
@@ -52,7 +52,7 @@ const About = () => {
                 />
               </h5>
             </div>
-            <div className=" w-1 h-15  mr-2 bg-red-500 "></div>
+            <div  className=" w-1 h-15  mr-2 bg-red-500 "></div>
             <div>
               <h4 className="text-3xl font-bold text-blue-600 ">110+</h4>
               <h5 className="text-base items-center justify-center flex font-mono font-semibold text-blue-500 ">

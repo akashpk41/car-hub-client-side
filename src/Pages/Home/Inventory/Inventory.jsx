@@ -24,7 +24,7 @@ const Inventory = () => {
       </div>
       <Link
         to="/manage-inventory"
-        className="text-white flex bg-white hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300   rounded-lg  px-2 items-center justify-center py-2.5 text-center hover:text-white border-2 border-red-500 font-bold ml-3 text-base hover:border-white mr-1 "
+        className="text-black flex bg-white hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300   rounded-lg  px-2 items-center justify-center py-2.5 text-center hover:text-white border-2 border-red-500 font-bold ml-3 text-base hover:border-white mr-1 "
       >
         Manage Inventory
         <svg

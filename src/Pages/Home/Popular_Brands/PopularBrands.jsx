@@ -11,21 +11,23 @@ const brands = [brand1, brand2, brand3, brand4, brand5, brand6];
 const PopularBrands = () => {
   return (
     <div className="my-10 border-orange-500 border-2 bg-white p-5 md:w-4/5 md:mx-auto shadow-2xl rounded-lg  ">
-      <h1 className="text-center my-3 text-3xl font-medium ">
+      <h1 className="text-3xl  font-bold  mb-3 text-center">
         {" "}
-        Popular Brands Available{" "}
-        <div className="flex mt-5 flex-col md:flex-row  items-center justify-center">
-          {brands.map((img, index) => (
-            <img
-              data-aos="zoom-in"
-              key={index}
-              className=" w-32 md:w-20  mt-5 md:mt-0 md:cursor-pointer hover:scale-125 duration-200 mx-2 "
-              src={img}
-              alt=""
-            />
-          ))}
-        </div>
+        Popular Brands Available
+        <span className="border-red-500 border-b-2 w-2/3 mx-auto block mt-3"></span>
       </h1>
+
+      <div className="flex mt-5 flex-col md:flex-row  items-center justify-center">
+        {brands.map((img, index) => (
+          <img
+            data-aos="zoom-in"
+            key={index}
+            className=" w-32 md:w-20  mt-5 md:mt-0 md:cursor-pointer hover:scale-125 duration-200 mx-2 "
+            src={img}
+            alt=""
+          />
+        ))}
+      </div>
     </div>
   );
 };

@@ -1,8 +1,10 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 import img from "../../../../images/login/img-2.jpg";
 const Register = () => {
 
-  
+  const { register, handleSubmit } = useForm();
+  const onSubmit = data => console.log(data);
 
   return (
     <div data-aos="zoom-in" className="relative">
@@ -12,7 +14,7 @@ const Register = () => {
         }}
         className=" h-screen blur-sm bg-cover bg-no-repeat  md:mx-auto p-2 md:p-10 "
       ></div>
-      <form className="bg-white w-full rounded-lg absolute md:top-16 md:left-48 top-20  p-5 md:w-2/4  md:mx-auto mb-5 ">
+      <form onSubmit={handleSubmit(onSubmit)} className="bg-white w-full rounded-lg absolute md:top-16 md:left-48 top-20  p-5 md:w-2/4  md:mx-auto mb-5 ">
         {" "}
         <h1 className="text-2xl  font-bold  mb-3 text-center">
           {" "}
@@ -23,18 +25,19 @@ const Register = () => {
           <div className="relative z-0 w-full mb-6 group">
             <input
               type="text"
-              name="floating_first_name"
-              id="floating_first_name"
+              name="floating_full_name"
+              id="floating_full_name"
               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=" "
               required
               autoComplete="off"
+              {...register("fullName", { required: true })}
             />
             <label
-              for="floating_first_name"
+              for="floating_full_name"
               className="peer-focus:font-medium absolute text-sm text-gray-500   duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600   peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >
-              First name
+             Full Name
             </label>
           </div>
         </div>
@@ -46,12 +49,13 @@ const Register = () => {
             placeholder=" "
             required
             autoComplete="off"
+            {...register("email", { required: true })}
           />
           <label
             for="floating_email"
             className="peer-focus:font-medium absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
-            Email address
+            Email Address
           </label>
         </div>
         <div className="relative z-0 w-full mb-6 group">
@@ -62,6 +66,7 @@ const Register = () => {
             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             placeholder=" "
             required
+            {...register("password", { required: true })}
           />
           <label
             for="floating_password"
@@ -78,6 +83,7 @@ const Register = () => {
             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             placeholder=" "
             required
+            {...register("confirm-password", { required: true })}
           />
           <label
             for="floating_repeat_password"

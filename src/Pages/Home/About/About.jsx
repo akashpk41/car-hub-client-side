@@ -6,9 +6,10 @@ const About = () => {
       data-aos="zoom-in"
       className=" bg-white md:w-4/5 md:mx-auto border-orange-500 border-2 rounded-lg shadow-2xl   my-5 "
     >
-      <h1 className="text-center  my-3 text-3xl font-medium ">
+      <h1 className="text-3xl  font-bold  mb-3 text-center">
         {" "}
-        Why Choose Us{" "}
+        Why Choose Us
+        <span className="border-red-500 border-b-2 w-2/4 mx-auto block mt-3"></span>
       </h1>
 
       <div className="flex flex-col md:flex-row items-center p-2  justify-center">

@@ -15,7 +15,7 @@ const SingleCarCard = ({ car }) => {
         alt=""
       />
       <div className="p-7  ">
-        <h5 className="mb-2 border-b-2 border-green-300 text-xl font-bold tracking-tight text-gray-900 ">
+        <h5 className="mb-2 text-center border-b-2 border-red-500 text-xl font-bold tracking-tight text-gray-900 ">
           {name}
         </h5>
         <h5 className="mb-2  text-base font-bold tracking-tight text-gray-800 ">

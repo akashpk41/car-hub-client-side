@@ -8,8 +8,8 @@ const ManageInventory = () => {
   console.log(cars);
 
   return (
-    <div className=" md:w-4/5 md:mx-auto   my-5 ">
-      <div className="flex items-center mb-3 justify-center ">
+    <div data-aos="zoom-in" className=" md:w-4/5 md:mx-auto   my-5 ">
+      <div className="flex flex-col md:flex-row items-center mb-3 justify-center ">
         <h1
           id="shadow"
           className="text-center text-gray-50 my-3 text-3xl font-medium mr-5 "
@@ -20,7 +20,7 @@ const ManageInventory = () => {
 
         <Link
           to="/add-items"
-          className="text-white bg-red-700 hover:bg-red-800  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium flex items-center justify-between  rounded-lg text-sm px-3 py-2.5 text-center mr-3 md:mr-0 "
+          className="text-white my-2 bg-red-700 hover:bg-red-800  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium flex items-center justify-between  rounded-lg text-sm px-3 py-2.5 text-center mr-3 md:mr-0 "
         >
           <PlusIcon className="h-5 w-5  text-white " />
           <span>Add New Items</span>
@@ -54,7 +54,7 @@ const ManageInventory = () => {
             <tbody>
               {cars.map((car) => (
                 <>
-                  <tr className="bg-white text-gray-700 font-medium text-center border-b ">
+                  <tr  className="bg-white text-gray-700 font-medium text-center border-b ">
                     <th
                       scope="row"
                       className="px-6 py-4 font-medium text-gray-900  whitespace-nowrap"

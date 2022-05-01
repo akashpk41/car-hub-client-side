@@ -1,9 +1,12 @@
 import axios from "axios";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import auth from "../../../firebase.init";
 import img from "../../../images/login/img-4.jpg";
 const Register = () => {
+  const [user] = useAuthState(auth);
   const { register: itemInfo, handleSubmit } = useForm();
   const onSubmit = async (itemInfo) => {
     console.log(itemInfo);
@@ -12,6 +15,8 @@ const Register = () => {
       "http://localhost:5000/inventory",
       itemInfo
     );
+    console.log(data);
+
    toast('Item Added Successfully')
   };
 
@@ -127,6 +132,8 @@ const Register = () => {
             name="floating_email"
             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             placeholder=" "
+            value={user.email}
+            // disabled
             required
             // autoComplete="off"
             {...itemInfo("email", { required: true })}

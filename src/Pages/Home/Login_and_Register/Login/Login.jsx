@@ -1,5 +1,6 @@
 import { EyeIcon, EyeOffIcon } from "@heroicons/react/solid";
 import React, { useState } from "react";
+import axios from "axios";
 import { toast } from "react-toastify";
 import {
   useSendPasswordResetEmail,
@@ -22,13 +23,12 @@ const Register = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-  if (user) {
-    navigate(from, { replace: true });
-  }
-
+  // if (user) {
+  //   // navigate(from, { replace: true });
+  // }
 
   const handlePasswordReset = async (e) => {
-    const email = e.target.floating_email.value
+    const email = e.target.floating_email.value;
     if (email) {
       await sendPasswordResetEmail(email);
       toast("Sent email");
@@ -38,10 +38,15 @@ const Register = () => {
   };
 
   const { register, handleSubmit } = useForm();
-  const onSubmit = async (data) => {
+  const onSubmit = async (userInfo) => {
     // console.log(data);
-
-    await signInWithEmailAndPassword(data.email, data.password);
+    await signInWithEmailAndPassword(userInfo.email, userInfo.password);
+    const email = userInfo.email;
+    // ! jwt .
+    const { data } = await axios.post("http://localhost:5000/login", { email });
+    console.log(data);
+    localStorage.setItem("accessToken", data.accessToken);
+    navigate(from, { replace: true });
   };
 
   return (

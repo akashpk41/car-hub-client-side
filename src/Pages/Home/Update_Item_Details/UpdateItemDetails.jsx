@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import useCar from "../../../hooks/useCar";
 
 const UpdateItemDetails = () => {
   const { itemId } = useParams();
   const [car, setCar] = useCar(itemId);
-  console.log(car);
+
+  // console.log(car);
   const { name, price, img, description, quantity, _id, supplierName, sold } =
     car;
+  // data-aos="zoom-in"
+
+  const handleDecreaseItemQuantity = () => {
+    const prevQuantity = quantity - 1;
+    console.log(prevQuantity);
+  };
 
   return (
     <div className=" p-2 md:p-10 my-5 text-center  ">
@@ -40,6 +47,7 @@ const UpdateItemDetails = () => {
           <p className="mb-7 font-normal text-gray-700 ">{description}</p>
 
           <button
+            onClick={handleDecreaseItemQuantity}
             type="button"
             className="focus:outline-none text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-base  md:text-sm  px-5 py-2.5 mr-2 mb-2 "
           >

@@ -1,24 +1,51 @@
 import { TrashIcon } from "@heroicons/react/solid";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
+import { signOut } from "firebase/auth";
 
 const MyItems = () => {
   const [user] = useAuthState(auth);
   const [myData, setMyData] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
-    (async () => {
-      const { data } = await axios.get(
-        `http://localhost:5000/my-items?email=${user.email}`
+    const getItemData = async () => {
+      try {
+        const { data } = await axios.get(
+          `http://localhost:5000/my-items?email=${user.email}`
+        );
+        setMyData(data);
+      } catch (error) {
+        console.log(error.message);
+        if (error.response.status === 401 || error.response.status === 403) {
+          signOut(auth);
+          navigate("/login");
+        }
+      }
+    };
+    getItemData();
+  }, []);
+
+  const handleDeleteItem = async (id) => {
+    const proceed = window.confirm("Are You Sure ?");
+    if (proceed) {
+      console.log("deleted", id);
+
+      const { data } = await axios.delete(
+        `http://localhost:5000/my-items/${id}`
       );
       console.log(data);
-      setMyData(data);
-    })();
-  }, [user]);
+      if (data.acknowledged > 0) {
+        const remaining = myData.filter((data) => data._id !== id);
+        setMyData(remaining);
+      }
+    }
+  };
 
   return (
-    <div className=" p-3  md:w-4/5 md:mx-auto   my-2 ">
+    <div data-aos="zoom-in" className=" p-3  md:w-4/5 md:mx-auto   my-2 ">
       <h1 className="text-center  my-3 text-3xl font-medium mr-5 ">
         {" "}
         All My Items{" "}
@@ -70,12 +97,12 @@ const MyItems = () => {
                       alt=""
                     />
                   </th>
-                  <td className="px-6 py-4">{data.name} </td>
-                  <td className="px-6 py-4">{data.price}</td>
+                  <td className="px-6 text-gray-700 py-4">{data.name} </td>
+                  <td className="px-6 text-gray-700 py-4">{data.price}</td>
 
                   <td className="px-6 py-4 text-right">
                     <button
-                      //     onClick={() => handleDeleteItem(car._id)}
+                      onClick={() => handleDeleteItem(data._id)}
                       className="font-medium  px-2 py-1 border-2 border-red-500 hover:bg-red-600 hover:text-white flex items-center justify-between  rounded-full "
                     >
                       <TrashIcon className="h-5 w-5 hover:text-white text-red-500" />{" "}

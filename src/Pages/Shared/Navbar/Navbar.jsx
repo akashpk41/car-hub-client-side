@@ -19,7 +19,7 @@ const Navbar = () => {
           {user ? (
             <button
               onClick={() => signOut(auth)}
-              className="text-white md:block hidden  md:flex bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  rounded-lg text-sm px-2 items-center justify-center py-2.5 text-center ml-3 md:mr-0 "
+              className="text-white flex   bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  rounded-lg px-2 items-center justify-center py-2.5 text-base  md:text-sm  text-center md:mr-0 "
             >
               <LogoutIcon className="h-5 w-5 mr-2 text-white " />
               <span>Log Out</span>
@@ -28,7 +28,7 @@ const Navbar = () => {
             <>
               <Link
                 to="/login"
-                className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium flex rounded-lg text-sm px-2 items-center justify-center py-2.5 text-center mr-3 md:mr-0 "
+                className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium flex rounded-lg text-base  md:text-sm  px-2 items-center justify-center py-2.5 text-center mr-3 md:mr-0 "
               >
                 <LoginIcon className="h-5 w-5 mr-2 text-white " />
                 <span>Login</span>

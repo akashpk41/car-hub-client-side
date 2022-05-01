@@ -1,6 +1,10 @@
 import { EyeIcon, EyeOffIcon } from "@heroicons/react/solid";
 import React, { useState } from "react";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../../firebase.init";
@@ -10,10 +14,10 @@ import SocialLogin from "../SocialLogin";
 
 const Register = () => {
   const [password, setPassword] = useState(false); // hide and show password
+
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
-  // send password reset email
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -24,6 +28,7 @@ const Register = () => {
   if (error) {
     console.log(error);
   }
+
 
   const { register, handleSubmit } = useForm();
   const onSubmit = async (data) => {
@@ -118,9 +123,11 @@ const Register = () => {
             Please Register{" "}
           </Link>{" "}
         </p>
+
+
         <button
           type="submit"
-          className="text-white w-full bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-3xl hover:rounded-sm transition-all duration-200 text-sm   px-5 py-2.5 text-center  "
+          className="text-white w-full bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-3xl hover:rounded-sm transition-all duration-200 text-base  md:text-sm  px-5 py-2.5 text-center  "
         >
           Login
         </button>

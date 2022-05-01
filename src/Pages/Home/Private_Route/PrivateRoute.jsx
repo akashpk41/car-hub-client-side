@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from "react-toastify";
 import {
   useAuthState,
   useSendEmailVerification,
@@ -33,7 +34,7 @@ const PrivateRoute = ({ children }) => {
         <button
           onClick={async () => {
             await sendEmailVerification();
-            alert("Sent email");
+            toast("Sent email");
           }}
           className="text-white   flex bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  rounded-lg text-sm px-2 items-center justify-center py-2.5 text-center mx-auto mt-7 "
         >

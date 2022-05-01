@@ -19,13 +19,11 @@ const Register = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   if (user) {
-    console.log(user);
     navigate(from, { replace: true });
   }
 
   const onSubmit = async (data) => {
     console.log(data);
-
 
     // validation form .
     if (data.password !== data.confirmPassword) {

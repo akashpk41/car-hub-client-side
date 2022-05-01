@@ -23,7 +23,7 @@ const SocialLogin = () => {
         <button
           onClick={() => signInWithGoogle()}
           type="button"
-          className="text-black border-2 w-full hover:bg-green-50 border-blue-600  bg-white  focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex justify-center items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
+          className="text-black border-2 w-full hover:bg-green-50 border-blue-600  bg-white  focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-base  md:text-sm  px-3 py-2 text-center inline-flex justify-center items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
         >
           <img
             className="w-6 mr-3 "
@@ -35,7 +35,7 @@ const SocialLogin = () => {
 
         <button
           type="button"
-          className="text-white bg-[#1da1f2] hover:bg-[#1da1f2]/90 focus:ring-4 focus:outline-none focus:ring-[#1da1f2]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex justify-center w-full items-center dark:focus:ring-[#1da1f2]/55 mr-2 mb-2"
+          className="text-white bg-[#1da1f2] hover:bg-[#1da1f2]/90 focus:ring-4 focus:outline-none focus:ring-[#1da1f2]/50 font-medium rounded-lg text-base  md:text-sm  px-5 py-2.5 text-center inline-flex justify-center w-full items-center dark:focus:ring-[#1da1f2]/55 mr-2 mb-2"
         >
           <svg
             class="w-4 h-4 mr-2 -ml-1"
@@ -57,7 +57,7 @@ const SocialLogin = () => {
 
         <button
           type="button"
-          className="text-white w-full bg-[#050708]  focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center justify-center dark:focus:ring-[#050708]/50  mr-2 mb-2"
+          className="text-white w-full bg-[#050708]  focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-base  md:text-sm  px-5 py-2.5 text-center inline-flex items-center justify-center dark:focus:ring-[#050708]/50  mr-2 mb-2"
         >
           <svg
             className="w-5 h-5 mr-2 -ml-1"

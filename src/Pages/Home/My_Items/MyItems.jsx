@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import { signOut } from "firebase/auth";
+import axiosPrivate from "../../../api/axiosPrivate";
 
 const MyItems = () => {
   const [user] = useAuthState(auth);
@@ -13,7 +14,7 @@ const MyItems = () => {
   useEffect(() => {
     const getItemData = async () => {
       try {
-        const { data } = await axios.get(
+        const { data } = await axiosPrivate.get(
           `http://localhost:5000/my-items?email=${user.email}`
         );
         setMyData(data);

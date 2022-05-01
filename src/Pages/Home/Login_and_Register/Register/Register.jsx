@@ -2,7 +2,7 @@ import { EyeIcon, EyeOffIcon } from "@heroicons/react/solid";
 import React, { useState } from "react";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import img from "../../../../images/login/img-2.jpg";
 import Error from "../../Error_Message/Error";
 import SocialLogin from "../SocialLogin";
@@ -13,19 +13,19 @@ const Register = () => {
   const [passwordError, setPasswordError] = useState("");
   const { register, handleSubmit } = useForm();
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
-  const navigate = useNavigate();
+    useCreateUserWithEmailAndPassword(auth,{sendEmailVerification:true});
 
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   if (user) {
     console.log(user);
-
-    navigate("/home");
+    navigate(from, { replace: true });
   }
 
   const onSubmit = async (data) => {
     console.log(data);
 
-    await createUserWithEmailAndPassword(data.email, data.password);
 
     // validation form .
     if (data.password !== data.confirmPassword) {
@@ -35,6 +35,8 @@ const Register = () => {
     if (data.password.length < 6) {
       return setPasswordError("Password length should be 6 or longer  ");
     }
+    await createUserWithEmailAndPassword(data.email, data.password);
+
   };
 
   return (

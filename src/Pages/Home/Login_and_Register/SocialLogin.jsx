@@ -1,6 +1,16 @@
 import React from "react";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { useLocation, useNavigate } from "react-router-dom";
+import auth from "../../../firebase.init";
 
 const SocialLogin = () => {
+  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  if (user) {
+    navigate(from, { replace: true });
+  }
   return (
     <div className="my-5  ">
       <div className="flex my-5 items-center justify-center ">
@@ -11,6 +21,7 @@ const SocialLogin = () => {
 
       <div className="buttons mx-auto ">
         <button
+          onClick={() => signInWithGoogle()}
           type="button"
           className="text-black border-2 w-full hover:bg-green-50 border-blue-600  bg-white  focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex justify-center items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
         >

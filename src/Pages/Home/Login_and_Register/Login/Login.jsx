@@ -1,15 +1,36 @@
 import { EyeIcon, EyeOffIcon } from "@heroicons/react/solid";
 import React, { useState } from "react";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import auth from "../../../../firebase.init";
 import img from "../../../../images/login/img-3.jpg";
+import Error from "../../Error_Message/Error";
 import SocialLogin from "../SocialLogin";
 
 const Register = () => {
   const [password, setPassword] = useState(false); // hide and show password
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+
+  // send password reset email
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  if (user) {
+    navigate(from, { replace: true });
+  }
+  if (error) {
+    console.log(error);
+  }
 
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    console.log(data);
+
+    await signInWithEmailAndPassword(data.email, data.password);
+  };
 
   return (
     <div data-aos="zoom-in" className="relative">
@@ -45,6 +66,13 @@ const Register = () => {
           >
             Email Address
           </label>
+          {error && (
+            <Error>
+              {" "}
+              {error.code === "auth/user-not-found" &&
+                "This Account Does't Exist"}{" "}
+            </Error>
+          )}
         </div>
         <div className="relative z-0 w-full mb-6 group">
           <input
@@ -72,6 +100,12 @@ const Register = () => {
           >
             Password
           </label>
+          {error && (
+            <Error>
+              {" "}
+              {error.code === "auth/wrong-password" && "Wrong Password"}
+            </Error>
+          )}
         </div>
         <p className="text-sm my-3 text-gray-900">
           {" "}

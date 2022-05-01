@@ -11,6 +11,7 @@ import ManageInventory from "./Pages/Home/Manage_Inventory/ManageInventory";
 
 import NotFound from "./Pages/Home/Not_Found/NotFound";
 import PrivateRoute from "./Pages/Home/Private_Route/PrivateRoute";
+import UpdateItemDetails from "./Pages/Home/Update_Item_Details/UpdateItemDetails";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Navbar from "./Pages/Shared/Navbar/Navbar";
 
@@ -43,6 +44,14 @@ function App() {
           element={
             <PrivateRoute>
               <ManageInventory />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/inventory/:itemId"
+          element={
+            <PrivateRoute>
+             <UpdateItemDetails />
             </PrivateRoute>
           }
         />

@@ -1,7 +1,7 @@
 import { EyeIcon, EyeOffIcon } from "@heroicons/react/solid";
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import {
-
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
@@ -14,10 +14,10 @@ import SocialLogin from "../SocialLogin";
 
 const Register = () => {
   const [password, setPassword] = useState(false); // hide and show password
-
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
-
+  // ! send password reset email
+  const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -25,14 +25,21 @@ const Register = () => {
   if (user) {
     navigate(from, { replace: true });
   }
-  if (error) {
-    console.log(error);
-  }
 
+
+  const handlePasswordReset = async (e) => {
+    const email = e.target.floating_email.value
+    if (email) {
+      await sendPasswordResetEmail(email);
+      toast("Sent email");
+    } else {
+      toast("please enter your email address");
+    }
+  };
 
   const { register, handleSubmit } = useForm();
   const onSubmit = async (data) => {
-    console.log(data);
+    // console.log(data);
 
     await signInWithEmailAndPassword(data.email, data.password);
   };
@@ -123,8 +130,14 @@ const Register = () => {
             Please Register{" "}
           </Link>{" "}
         </p>
-
-
+        <div className="my-3 text-sm">
+          <button
+            onClick={handlePasswordReset}
+            className="text-blue-800 text-base md:text-sm hover:underline font-semibold "
+          >
+            Forget Password ?
+          </button>
+        </div>
         <button
           type="submit"
           className="text-white w-full bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-3xl hover:rounded-sm transition-all duration-200 text-base  md:text-sm  px-5 py-2.5 text-center  "

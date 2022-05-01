@@ -19,7 +19,7 @@ const Inventory = () => {
 
       <div className="grid md:grid-cols-3  ">
         {cars.slice(0, 6).map((car) => (
-          <SingleCarCard key={car.id} car={car} />
+          <SingleCarCard key={car._id} car={car} />
         ))}
       </div>
       <Link

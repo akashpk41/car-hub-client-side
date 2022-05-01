@@ -2,14 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const SingleCarCard = ({ car }) => {
-  const { name, price, img, description, quantity } = car;
+  const { name, price, img, description, quantity, _id } = car;
+  // console.log(car);
+
   return (
     <div
       data-aos="fade-up"
       data-aos-duration="1000"
       className="max-w-sm hover:scale-105 transition-all duration-200 relative m-2 md:cursor-pointer bg-white rounded-lg border  shadow-xl hover:shadow-2xl text-center md:text-left "
     >
-      <img data-aos="zoom-in"
+      <img
+        data-aos="zoom-in"
         className="rounded-t-lg hover:-translate-y-1 md:hover:scale-110  md:hover:bg-indigo-500 md:hover:mt-5 duration-300 border-b-2 border-gray-500 "
         src={img}
         alt=""
@@ -29,7 +32,7 @@ const SingleCarCard = ({ car }) => {
           {description.slice(0, 100) + "..."}
         </p>
         <Link
-          to="/"
+          to={`/inventory/${_id}`}
           className="flex mt-10 justify-center items-center absolute left-0  bottom-0 text-center  py-2 px-3  text-xl md:text-sm font-medium  w-full text-white transition-all duration-200 bg-red-700 hover:rounded-none rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
         >
           Update

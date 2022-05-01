@@ -5,7 +5,7 @@ import useCars from "../../../hooks/useCars";
 
 const ManageInventory = () => {
   const [cars, setCars] = useCars();
-  console.log(cars);
+  // console.log(cars);
 
   return (
     <div data-aos="zoom-in" className=" md:w-4/5 md:mx-auto   my-5 ">

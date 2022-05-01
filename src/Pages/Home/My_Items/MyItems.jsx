@@ -47,7 +47,7 @@ const MyItems = () => {
 
   return (
     <div data-aos="zoom-in" className=" p-3  md:w-4/5 md:mx-auto   my-2 ">
-      <h1 className="text-center  my-3 text-3xl font-medium mr-5 ">
+      <h1 className="text-center text-white  my-3 text-3xl font-medium mr-5 ">
         {" "}
         All My Items{" "}
       </h1>

@@ -2,10 +2,27 @@ import React from "react";
 import { BeakerIcon, PlusIcon, TrashIcon } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
 import useCars from "../../../hooks/useCars";
+import axios from "axios";
 
 const ManageInventory = () => {
   const [cars, setCars] = useCars();
   // console.log(cars);
+
+  const handleDeleteItem = async (id) => {
+    const proceed = window.confirm("Are You Sure ?");
+    if (proceed) {
+      console.log("deleted", id);
+
+      const { data } = await axios.delete(
+        `http://localhost:5000/manage-inventory/${id}`
+      );
+      console.log(data);
+      if (data.acknowledged > 0) {
+        const remaining = cars.filter((car) => car._id !== id);
+        setCars(remaining);
+      }
+    }
+  };
 
   return (
     <div data-aos="zoom-in" className=" md:w-4/5 md:mx-auto   my-5 ">
@@ -53,32 +70,30 @@ const ManageInventory = () => {
             </thead>
             <tbody>
               {cars.map((car) => (
-                <>
-                  <tr  className="bg-white text-gray-700 font-medium text-center border-b ">
-                    <th
-                      scope="row"
-                      className="px-6 py-4 font-medium text-gray-900  whitespace-nowrap"
+                <tr className="bg-white text-gray-700 font-medium text-center border-b ">
+                  <th
+                    scope="row"
+                    className="px-6 py-4 font-medium text-gray-900  whitespace-nowrap"
+                  >
+                    <img
+                      className="w-14 h-14 rounded-full"
+                      src={car.img}
+                      alt=""
+                    />
+                  </th>
+                  <td className="px-6 py-4">{car.name}</td>
+                  <td className="px-6 py-4">{car.price}</td>
+                  <td className="px-6 py-4">{car.quantity}</td>
+                  <td className="px-6 py-4 text-right">
+                    <button
+                      onClick={() => handleDeleteItem(car._id)}
+                      className="font-medium  px-2 py-1 border-2 border-red-500 hover:bg-red-600 hover:text-white flex items-center justify-between  rounded-full "
                     >
-                      <img
-                        className="w-14 h-14 rounded-full"
-                        src={car.img}
-                        alt=""
-                      />
-                    </th>
-                    <td className="px-6 py-4">{car.name}</td>
-                    <td className="px-6 py-4">{car.price}</td>
-                    <td className="px-6 py-4">{car.quantity}</td>
-                    <td className="px-6 py-4 text-right">
-                      <Link
-                        to="/"
-                        className="font-medium  px-2 py-1 border-2 border-red-500 hover:bg-red-600 hover:text-white flex items-center justify-between  rounded-full "
-                      >
-                        <TrashIcon className="h-5 w-5 hover:text-white text-red-500" />{" "}
-                        <span>Delete</span>
-                      </Link>
-                    </td>
-                  </tr>
-                </>
+                      <TrashIcon className="h-5 w-5 hover:text-white text-red-500" />{" "}
+                      <span>Delete</span>
+                    </button>
+                  </td>
+                </tr>
               ))}
             </tbody>
           </table>

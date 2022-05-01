@@ -1,15 +1,41 @@
 import { EyeIcon, EyeOffIcon } from "@heroicons/react/solid";
 import React, { useState } from "react";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import img from "../../../../images/login/img-2.jpg";
+import Error from "../../Error_Message/Error";
 import SocialLogin from "../SocialLogin";
+import auth from "../../../../firebase.init.js";
 
 const Register = () => {
   const [password, setPassword] = useState(false); // hide and show password
-
+  const [passwordError, setPasswordError] = useState("");
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+  const navigate = useNavigate();
+
+  if (user) {
+    console.log(user);
+
+    navigate("/home");
+  }
+
+  const onSubmit = async (data) => {
+    console.log(data);
+
+    await createUserWithEmailAndPassword(data.email, data.password);
+
+    // validation form .
+    if (data.password !== data.confirmPassword) {
+      return setPasswordError("Your Two Password Not Match.");
+    }
+
+    if (data.password.length < 6) {
+      return setPasswordError("Password length should be 6 or longer  ");
+    }
+  };
 
   return (
     <div data-aos="zoom-in" className="">
@@ -50,7 +76,7 @@ const Register = () => {
             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             placeholder=" "
             required
-            autoComplete="off"
+            // autoComplete="off"
             {...register("email", { required: true })}
           />
           <label
@@ -95,7 +121,7 @@ const Register = () => {
             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             placeholder=" "
             required
-            {...register("confirm-password", { required: true })}
+            {...register("confirmPassword", { required: true })}
           />
           <span
             onClick={() => setPassword(!password)}
@@ -114,6 +140,7 @@ const Register = () => {
             Confirm password
           </label>
         </div>
+        {passwordError && <Error>{passwordError}</Error>}
         <p className="text-sm my-3 text-gray-900">
           {" "}
           Already Have an Account ?{" "}

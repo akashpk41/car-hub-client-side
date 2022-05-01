@@ -12,7 +12,7 @@ const SocialLogin = () => {
       <div className="buttons mx-auto ">
         <button
           type="button"
-          className="text-black border-2 w-full border-blue-600  bg-white  focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex justify-center items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
+          className="text-black border-2 w-full hover:bg-green-50 border-blue-600  bg-white  focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex justify-center items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
         >
           <img
             className="w-6 mr-3 "
@@ -65,8 +65,6 @@ const SocialLogin = () => {
           </svg>
           Sign in with Apple
         </button>
-
-
       </div>
     </div>
   );

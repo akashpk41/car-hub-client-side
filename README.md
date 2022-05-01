@@ -8,27 +8,33 @@
 
 # stack overflow link :
 
-### Technologies used in this website `Tailwind CSS` `React` `React Router-v6` `Firebase` `Node js` `Express js` `MongoDB` `JWT (json web token)`
+- Technologies used in this website `Tailwind CSS` `React` `React Router-v6` `Firebase` `Node js` `Express js` `MongoDB` `JWT (json web token)`
 
 # Main Features
 
-- In this `Car Hub` website there are `Navbar` `Banner` `Inventory Items` `Popular Brands` `About` `Contact` `Blogs` `Add Items` `My Items` and `Manage Items` section available
+- In this `Car Hub` website there are `Navbar` `Banner` `Inventory Items` `Popular Brands` `About` `Contact` `Blogs` `Add Items` `My Items` and `Manage Items` sections are available
 
-- User can see inventory items blogs contact and about page.
-- `Add Items` `My Items` and ` Manage Items` page are private thats mean user can see if they are registered .
+- Users can see inventory items blogs contact and about pages.
 
-* Iam implemented Login system by Firebase 9 . User can login with their `Google` Account.
+- `Add Items` `My Items` and ` Manage Items` page are private that's mean only registered user can see that page
+
+* I am implemented a Login system by Firebase 9 . Users can log in with their `Google` Account.
 
 * Also user can Create New Account with their `Email` and `Password`
 
-* In private route page if user's email is not verified yet he/she can't see that page, when he/she will create a new account, autometically a verifaction email will be send in their email .
+* In the private route page if the user's email is not verified yet he/she can't see that page, when he/she will create a new account, automatically a verification email will be sent to their email.
 
-* If verifaction email is not send User can send it manually .
+* If a verification email is not sent User can send it manually.
+
 * In the `Manage Items` page user can see all of inventory items.
-* There is a `Add New Items` section where user can add their own inventory item by items name, price , image and etc information
 
-* And in `My Items` page user can view all of inventory items data what user added. And there is a delete button he/she can be delete it from that page
+* There is a `Add New Items` section where user can add their own inventory item by items name, price, image and etc information
 
-* I implemented `JWT` (json web token) for sucure api . When user will be login it autometically generate .
+* And on the `My Items` page user can view all of the inventory items data that the user added. And there is a delete button he/she can delete it from that page
 
-* And finally this is my first `MERN STACK` project . I used Tailwind CSS for make website responsive `React` for UI ` Node` and `Express js` for creating server and is used `MongoDB` as database for store user and all inventory items data.
+* I implemented `JWT` (json web token) for secure API . When the user will be login it is automatically generate.
+
+* if users have a valid token then only user can see their data on my items page
+
+* And finally this is my first `MERN STACK` project. I used Tailwind CSS to make the website responsive.
+  for making good looking UI I used `React`. ` Node` and `Express js` for creating the server and is used `MongoDB` as a database for storing user and all inventory items data.

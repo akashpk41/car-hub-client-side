@@ -11,7 +11,7 @@ const useCar = (itemId) => {
       setCar(data)
     })()
 
-  }, []);
+  }, [car]);
   return [car, setCar]
 };
 

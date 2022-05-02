@@ -1,24 +1,32 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 import { useParams, Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import useCar from "../../../hooks/useCar";
 
 const UpdateItemDetails = () => {
   const { itemId } = useParams();
   const [car, setCar] = useCar(itemId);
-
+  const { newQuantity, setNewQuantity } = useState(0);
   // console.log(car);
   const { name, price, img, description, quantity, _id, supplierName, sold } =
     car;
   // data-aos="zoom-in"
 
-  // const handleDecreaseItemQuantity = () => {
-  //   // useEffect(() => {
-  //     const prevQuantity = quantity - 1;
-  //     setPrevQuantity(prevQuantity)
-  //     // console.log(prevQuantity);
-  //   // }, []);
-  // };
+  const handleDecreaseItemQuantity = () => {
+    // ! decrease quantity by one .
+    (async () => {
+      const { data } = await axios.put(
+        `http://localhost:5000/inventory/${_id}?oldQuantity=${quantity}`
+      );
+      toast(" Delivered Successfully .");
+    })();
+  };
+
+  const handleRestockItem = (e) => {
+    const quantity = e.target.addItem.value;
+  };
 
   return (
     <div className=" p-2 md:p-10 my-5 text-center  ">
@@ -51,7 +59,7 @@ const UpdateItemDetails = () => {
           <p className="mb-7 font-normal text-gray-700 ">{description}</p>
 
           <button
-            // onClick={() => quantity -1 }
+            onClick={handleDecreaseItemQuantity}
             type="button"
             className="focus:outline-none text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-base  md:text-sm  px-5 py-2.5 mr-2 mb-2 "
           >
@@ -70,6 +78,7 @@ const UpdateItemDetails = () => {
               <input
                 type="number"
                 id="number"
+                name="addItem"
                 className="block w-full p-4 pl-16 md:pl-20 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 placeholder="Item Quantity"
                 required=""

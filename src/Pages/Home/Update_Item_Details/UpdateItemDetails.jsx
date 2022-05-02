@@ -8,7 +8,9 @@ import useCar from "../../../hooks/useCar";
 const UpdateItemDetails = () => {
   const { itemId } = useParams();
   const [car, setCar] = useCar(itemId);
-  const { newQuantity, setNewQuantity } = useState(0);
+  const [itemQuantity, setItemQuantity] = useState("");
+  //
+
   // console.log(car);
   const { name, price, img, description, quantity, _id, supplierName, sold } =
     car;
@@ -24,8 +26,20 @@ const UpdateItemDetails = () => {
     })();
   };
 
-  const handleRestockItem = (e) => {
-    const quantity = e.target.addItem.value;
+  const handleRestockItem = (event) => {
+    event.preventDefault();
+    // ! update item quantity
+    // const prevQuantity = parseInt(quantity);
+    // const newQuantity = parseInt(itemQuantity)
+    (async () => {
+      const { data } = await axios.put(
+        `http://localhost:5000/inventory/${_id}?prevQuantity=${quantity}&newQuantity=${itemQuantity}`
+      );
+      toast(" Item Added Successfully .");
+      console.log(data);
+    })();
+
+    // console.log( newQuantity);
   };
 
   return (
@@ -77,13 +91,15 @@ const UpdateItemDetails = () => {
               </div>
               <input
                 type="number"
-                id="number"
-                name="addItem"
+                id="itemQuantity"
+                name="itemQuantity"
                 className="block w-full p-4 pl-16 md:pl-20 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                onBlur={(e) => setItemQuantity(e.target.value)}
                 placeholder="Item Quantity"
-                required=""
+                required
               />
               <button
+                onClick={handleRestockItem}
                 type="submit"
                 className="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none  focus:ring-blue-300 font-medium rounded-lg text-base  md:text-sm px-4 py-2 "
               >

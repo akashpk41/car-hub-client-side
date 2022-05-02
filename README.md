@@ -6,7 +6,7 @@
 
 ### Server Side Repository Link : https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-akashpk41
 
-###  :  [stack overflow link Question Link ](https://stackoverflow.com/questions/72082229/flowbite-navbar-component-is-not-working-in-react-app?fbclid=IwAR2U-V69mUkAhqOvHFGKXS8Wx4c9rJtKTOvcwoENOzKsh70vktb3iIdVjEE)
+###  :  [stack overflow question Link ](https://stackoverflow.com/questions/72082229/flowbite-navbar-component-is-not-working-in-react-app?fbclid=IwAR2U-V69mUkAhqOvHFGKXS8Wx4c9rJtKTOvcwoENOzKsh70vktb3iIdVjEE)
 
 - Technologies used in this website `Tailwind CSS` `React` `React Router-v6` `Firebase` `Node js` `Express js` `MongoDB` `JWT (json web token)`
 

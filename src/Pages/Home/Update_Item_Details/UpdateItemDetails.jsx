@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+
+import { useParams, Link } from "react-router-dom";
 import useCar from "../../../hooks/useCar";
 
 const UpdateItemDetails = () => {
@@ -11,10 +12,13 @@ const UpdateItemDetails = () => {
     car;
   // data-aos="zoom-in"
 
-  const handleDecreaseItemQuantity = () => {
-    const prevQuantity = quantity - 1;
-    console.log(prevQuantity);
-  };
+  // const handleDecreaseItemQuantity = () => {
+  //   // useEffect(() => {
+  //     const prevQuantity = quantity - 1;
+  //     setPrevQuantity(prevQuantity)
+  //     // console.log(prevQuantity);
+  //   // }, []);
+  // };
 
   return (
     <div className=" p-2 md:p-10 my-5 text-center  ">
@@ -47,15 +51,15 @@ const UpdateItemDetails = () => {
           <p className="mb-7 font-normal text-gray-700 ">{description}</p>
 
           <button
-            onClick={handleDecreaseItemQuantity}
+            // onClick={() => quantity -1 }
             type="button"
             className="focus:outline-none text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-base  md:text-sm  px-5 py-2.5 mr-2 mb-2 "
           >
-            Restock
+            Delivered
           </button>
 
           <form>
-            <div className="relative">
+            <div className="relative mb-10">
               <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                 <img
                   className="w-10  "
@@ -72,11 +76,17 @@ const UpdateItemDetails = () => {
               />
               <button
                 type="submit"
-                className="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base  md:text-sm px-4 py-2 "
+                className="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none  focus:ring-blue-300 font-medium rounded-lg text-base  md:text-sm px-4 py-2 "
               >
-                Add Item
+                Restock
               </button>
             </div>
+            <Link
+              to="/manage-inventory"
+              className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-base  md:text-sm  px-5 py-2.5 mt-15 w-full "
+            >
+              Manage Inventory
+            </Link>
           </form>
         </div>
       </div>

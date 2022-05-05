@@ -15,7 +15,7 @@ const MyItems = () => {
     const getItemData = async () => {
       try {
         const { data } = await axiosPrivate.get(
-          `http://localhost:5000/my-items?email=${user.email}`
+          `https://stormy-forest-45814.herokuapp.com/my-items?email=${user.email}`
         );
         setMyData(data);
       } catch (error) {
@@ -35,7 +35,7 @@ const MyItems = () => {
       console.log("deleted", id);
 
       const { data } = await axios.delete(
-        `http://localhost:5000/my-items/${id}`
+        `https://stormy-forest-45814.herokuapp.com/my-items/${id}`
       );
       console.log(data);
       if (data.acknowledged > 0) {

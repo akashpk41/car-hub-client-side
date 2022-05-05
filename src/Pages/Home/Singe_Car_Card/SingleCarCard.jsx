@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const SingleCarCard = ({ car }) => {
-  const { name, price, img, description, quantity, _id } = car;
+  const { name, price, img, description, supplierName, quantity, _id } = car;
   // console.log(car);
 
   return (
@@ -25,7 +25,10 @@ const SingleCarCard = ({ car }) => {
           Price : <span className="text-green-700"> {price}</span>
         </h5>
         <h5 className="mb-2 text-sm font-bold tracking-tight text-gray-800 ">
-          Quantity : <span className="text-red-700">{quantity}</span>
+          Supplier : <span className="text-blue-700">{supplierName}</span>
+        </h5>
+        <h5 className="mb-2 text-sm font-bold tracking-tight text-gray-800 ">
+          {/* Quantity : <span className="text-red-700"> {quantity} </span> */}
         </h5>
 
         <p className="mb-7 font-normal text-gray-700 ">

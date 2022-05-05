@@ -43,7 +43,10 @@ const Register = () => {
     await signInWithEmailAndPassword(userInfo.email, userInfo.password);
     const email = userInfo.email;
     // ! jwt .
-    const { data } = await axios.post("http://localhost:5000/login", { email });
+    const { data } = await axios.post(
+      "https://stormy-forest-45814.herokuapp.com/login",
+      { email }
+    );
     console.log(data);
     localStorage.setItem("accessToken", data.accessToken);
     navigate(from, { replace: true });

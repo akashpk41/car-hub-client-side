@@ -5,7 +5,9 @@ const useCars = () => {
   const [cars, setCars] = useState([]);
   useEffect(() => {
     (async () => {
-      const { data } = await axios.get("http://localhost:5000/inventory");
+      const { data } = await axios.get(
+        "https://stormy-forest-45814.herokuapp.com/inventory"
+      );
       //     console.log(data);
       setCars(data);
     })();

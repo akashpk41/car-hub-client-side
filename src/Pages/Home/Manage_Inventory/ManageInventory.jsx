@@ -14,7 +14,7 @@ const ManageInventory = () => {
       console.log("deleted", id);
 
       const { data } = await axios.delete(
-        `http://localhost:5000/manage-inventory/${id}`
+        `https://stormy-forest-45814.herokuapp.com/manage-inventory/${id}`
       );
       console.log(data);
       if (data.acknowledged > 0) {
@@ -83,7 +83,7 @@ const ManageInventory = () => {
                   </th>
                   <td className="px-6 py-4">{car.name}</td>
                   <td className="px-6 py-4">{car.price}</td>
-                  <td className="px-6 py-4">{car.quantity}</td>
+                  {/* <td className="px-6 py-4">{car.quantity}</td> */}
                   <td className="px-6 py-4 text-right">
                     <button
                       onClick={() => handleDeleteItem(car._id)}

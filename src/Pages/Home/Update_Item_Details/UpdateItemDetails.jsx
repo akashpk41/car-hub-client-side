@@ -20,7 +20,7 @@ const UpdateItemDetails = () => {
     // ! decrease quantity by one .
     (async () => {
       const { data } = await axios.put(
-        `http://localhost:5000/inventory/${_id}?oldQuantity=${quantity}`
+        `https://stormy-forest-45814.herokuapp.com/inventory/${_id}?oldQuantity=${quantity}`
       );
       toast(" Delivered Successfully .");
     })();
@@ -33,7 +33,7 @@ const UpdateItemDetails = () => {
     // const newQuantity = parseInt(itemQuantity)
     (async () => {
       const { data } = await axios.put(
-        `http://localhost:5000/inventory/${_id}?prevQuantity=${quantity}&newQuantity=${itemQuantity}`
+        `https://stormy-forest-45814.herokuapp.com/inventory/${_id}?prevQuantity=${quantity}&newQuantity=${itemQuantity}`
       );
       toast(" Item Added Successfully .");
       console.log(data);
@@ -119,5 +119,5 @@ const UpdateItemDetails = () => {
   );
 };
 
-// https://morning-crag-33420.herokuapp.com/  
+// https://stormy-forest-45814.herokuapp.com/
 export default UpdateItemDetails;

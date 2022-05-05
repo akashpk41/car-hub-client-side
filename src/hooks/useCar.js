@@ -6,13 +6,15 @@ const useCar = (itemId) => {
   useEffect(() => {
     (async () => {
       const { data } = await axios.get(
-        `http://localhost:5000/inventory/${itemId}`
+        `https://stormy-forest-45814.herokuapp.com/inventory/${itemId}`
       );
-      setCar(data)
-    })()
-
+      setCar(data);
+    })();
   }, [car]);
-  return [car, setCar]
+  return [car, setCar];
 };
 
 export default useCar;
+
+
+// https://stormy-forest-45814.herokuapp.com/

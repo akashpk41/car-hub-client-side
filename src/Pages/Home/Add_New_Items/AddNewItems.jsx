@@ -12,12 +12,12 @@ const Register = () => {
     console.log(itemInfo);
 
     const { data } = await axios.post(
-      "http://localhost:5000/inventory",
+      "https://stormy-forest-45814.herokuapp.com/inventory",
       itemInfo
     );
     console.log(data);
 
-   toast('Item Added Successfully')
+    toast("Item Added Successfully");
   };
 
   return (

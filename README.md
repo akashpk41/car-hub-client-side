@@ -2,11 +2,11 @@
 
 ## This is a Car warehouse website where all luxury cars are available .
 
-# live site link :
+### live site link : https://car-hub-c85c4.web.app/
 
-[Server Side Code Link](https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-akashpk41)
+### Server Side Repository Link : https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-akashpk41
 
-# stack overflow link :
+###  :  [stack overflow question Link ](https://stackoverflow.com/questions/72082229/flowbite-navbar-component-is-not-working-in-react-app?fbclid=IwAR2U-V69mUkAhqOvHFGKXS8Wx4c9rJtKTOvcwoENOzKsh70vktb3iIdVjEE)
 
 - Technologies used in this website `Tailwind CSS` `React` `React Router-v6` `Firebase` `Node js` `Express js` `MongoDB` `JWT (json web token)`
 
